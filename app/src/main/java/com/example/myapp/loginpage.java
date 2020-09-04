@@ -11,33 +11,31 @@ import android.widget.EditText;
 
 public class loginpage extends AppCompatActivity {
 
-EditText Phoneno;
-CardView generateotpcardview;
+EditText PhoneNO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginpage);
 
-        Phoneno =findViewById(R.id.editTextPhone);
+        PhoneNO =findViewById(R.id.editTextPhone);
     }
     public void generate(View view){
-        generateotpcardview = findViewById(R.id.generateotpcardview);
 
-    String phone=Phoneno.getText().toString();
+    String phone=PhoneNO.getText().toString();
         SharedPreferences sharedPreferences=getSharedPreferences("access",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Phoneno",phone);
+        editor.putString("PhoneNo",phone);
         editor.apply();
 
         if (phone.isEmpty()){
-            Phoneno.setError("please enter your no");
-            Phoneno.requestFocus();
+            PhoneNO.setError("please enter your no");
+            PhoneNO.requestFocus();
 
         }
-    else if (Phoneno.length()!=10){
-            Phoneno.setError("please enter verified no");
-            Phoneno.requestFocus();
+    else if (phone.length()!= 10){
+            PhoneNO.setError("please enter verified no");
+            PhoneNO.requestFocus();
 
         }
     else{
