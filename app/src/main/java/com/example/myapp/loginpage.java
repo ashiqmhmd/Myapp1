@@ -23,10 +23,10 @@ EditText PhoneNO;
     public void generate(View view){
 
     String phone=PhoneNO.getText().toString();
-        SharedPreferences sharedPreferences=getSharedPreferences("access",MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("PhoneNo",phone);
-        editor.apply();
+       // SharedPreferences sharedPreferences=getSharedPreferences("access",MODE_PRIVATE);
+       // SharedPreferences.Editor editor = sharedPreferences.edit();
+       // editor.putString("PhoneNo",phone);
+      //  editor.apply();
 
         if (phone.isEmpty()){
             PhoneNO.setError("please enter your no");
@@ -40,6 +40,7 @@ EditText PhoneNO;
         }
     else{
             Intent intent = new Intent(getApplicationContext(), otppage.class);
+            intent.putExtra("phone",phone);
             startActivity(intent);
         }
 

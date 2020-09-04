@@ -34,10 +34,10 @@ EditText Otp;
 
         Otp = findViewById(R.id.otp);
 
-        SharedPreferences sharedPreferences =getSharedPreferences("settings",MODE_PRIVATE);
-        String phone= sharedPreferences.getString("PhoneNo","");
+        //SharedPreferences sharedPreferences =getSharedPreferences("settings",MODE_PRIVATE);
+       // String phone= sharedPreferences.getString("PhoneNo","");
 
-
+String phone=getIntent().getStringExtra("phone");
         sendVerificationCodeToUser(phone);
 
     }
